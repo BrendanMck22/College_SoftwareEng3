@@ -2,29 +2,24 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Student {
-    public static void main(String[] args) {
-        Student Brendan = new Student("Brendan", 22, LocalDate.of(1999,01,02),11);
-        String test = Brendan.getUsername();
-        System.out.println(test);
-    }
+
     String name;
     int age;
     LocalDate DOB;
     int ID;
-//    ArrayList<String> courses;
-//    ArrayList<String> modules;
+    ArrayList<Course> courses;
+    ArrayList<Module> modules;
 
-    public Student(String name, int age, LocalDate DOB, int ID){
+    public Student(String name, int age, LocalDate DOB, int ID ){
         this.name = name;
         this.age = age;
         this.DOB = DOB;
         this.ID = ID;
-//        this.courses = courses;
-//        this.modules = modules;
+
     }
 
     public String getUsername(){
-        String username = name+ age;
+        String username = name+ ID;
         return username;
     }
 
@@ -60,19 +55,16 @@ public class Student {
         this.DOB = DOB;
     }
 
-//    public ArrayList<String> getCourses() {
-//        return courses;
-//    }
-//
-//    public void setCourses(ArrayList<String> courses) {
-//        this.courses = courses;
-//    }
-//
-//    public ArrayList<String> getModules() {
-//        return modules;
-//    }
-//
-//    public void setModules(ArrayList<String> modules) {
-//        this.modules = modules;
-//    }
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", DOB=" + DOB +
+                ", ID=" + ID +
+                ", courses=" + courses +
+                ", modules=" + modules +
+                '}';
+    }
+
 }

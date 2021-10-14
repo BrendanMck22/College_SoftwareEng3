@@ -1,3 +1,5 @@
+import org.joda.time.DateTime;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -5,13 +7,11 @@ public class Course {
     String courseName;
     ArrayList<Module> moduleList;
     ArrayList<Student> studentList;
-    LocalDate startDate;
-    LocalDate endDate;
+    DateTime startDate;
+    DateTime endDate;
 
-    public Course(String courseName, ArrayList<Module> moduleList, ArrayList<Student> studentList, LocalDate startDate, LocalDate endDate){
+    public Course(String courseName, DateTime startDate, DateTime endDate){
         this.courseName = courseName;
-        this.moduleList = moduleList;
-        this.studentList = studentList;
         this.startDate = startDate;
         this.endDate = endDate;
     }
@@ -40,19 +40,30 @@ public class Course {
         this.studentList = studentList;
     }
 
-    public LocalDate getStartDate() {
+    public DateTime getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(DateTime startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDate getEndDate() {
+    public DateTime getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(DateTime endDate) {
         this.endDate = endDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseName='" + courseName + '\'' +
+                ", moduleList=" + moduleList +
+                ", studentList=" + studentList +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                '}';
     }
 }

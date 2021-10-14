@@ -6,11 +6,10 @@ public class Module {
     ArrayList<Student> studentsList;
     ArrayList<Student> associatedCourses;
 
-    public Module(String modName, int modID, ArrayList<Student> studentsList, ArrayList<Student> associatedCourses){
+    public Module(String modName, int modID){
         this.modName = modName;
         this.modID = modID;
-        this.studentsList = studentsList;
-        this.associatedCourses = associatedCourses;
+
     }
 
     public String getModName() {
@@ -43,5 +42,15 @@ public class Module {
 
     public void setAssociatedCourses(ArrayList<Student> associatedCourses) {
         this.associatedCourses = associatedCourses;
+    }
+
+    @Override
+    public String toString() {
+        return "Module{" +
+                "modName='" + modName + '\'' +
+                ", modID=" + modID +
+                ", studentsList=" + studentsList +
+                ", associatedCourses=" + associatedCourses +
+                '}';
     }
 }
