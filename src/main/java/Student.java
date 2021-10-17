@@ -7,8 +7,8 @@ public class Student {
     int age;
     LocalDate DOB;
     int ID;
-    ArrayList<Course> courses;
-    ArrayList<Module> modules;
+    ArrayList<Course> coursesReg;
+    ArrayList<Module> modulesReg;
 
     public Student(String name, int age, LocalDate DOB, int ID ){
         this.name = name;
@@ -22,6 +22,26 @@ public class Student {
         String username = name+ ID;
         return username;
     }
+    public void addModule(Module module) {
+        if (!modulesReg.contains(module)) {
+            modulesReg.add(module);
+        }
+    }
+        public void removeModule(Module module)
+        {
+                modulesReg.remove(module);
+        }
+    public void addCourse(Course course) {
+        if (!coursesReg.contains(course)) {
+            coursesReg.add(course);
+        }
+    }
+    public void removeModule(Course course)
+    {
+            coursesReg.remove(course);
+    }
+
+
 
     public String getName() {
         return name;
@@ -55,6 +75,10 @@ public class Student {
         this.DOB = DOB;
     }
 
+    public void printUsername(Student student){
+        System.out.println("Username is : " + student.getUsername());
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -62,8 +86,8 @@ public class Student {
                 ", age=" + age +
                 ", DOB=" + DOB +
                 ", ID=" + ID +
-                ", courses=" + courses +
-                ", modules=" + modules +
+                ", courses=" + coursesReg +
+                ", modules=" + modulesReg +
                 '}';
     }
 

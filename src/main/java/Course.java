@@ -18,6 +18,20 @@ public class Course {
         this.studentList = new ArrayList<Student>();
     }
 
+    public void addModuleToCourse(Module module){
+        if(!moduleList.contains(module)){
+            moduleList.add(module);
+        }
+    }
+    public void removeModuleFromCourse(Module module){
+        moduleList.remove(module);
+    }
+
+    public void addStudentToCourse(Student student){
+
+    }
+
+
     public String getCourseName() {
         return courseName;
     }

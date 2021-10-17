@@ -17,6 +17,28 @@ public class Module {
 
     }
 
+    public void addModuleToCourse(Course course){
+        if(!associatedCourses.contains(course)){
+            associatedCourses.add(course);
+        }
+    }
+    public void removeModuleFromCourse(Course course){
+        associatedCourses.remove(course);
+    }
+    public void addStudentToCourse(Student student){
+        if(!studentsList.contains(student)){
+            studentsList.add(student);
+        }
+    }
+    public void removeStudentFromCourse(Student student){
+        studentsList.remove(student);
+    }
+
+
+
+
+
+
     public String getModName() {
         return modName;
     }
