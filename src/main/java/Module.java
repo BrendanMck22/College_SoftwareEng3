@@ -1,14 +1,19 @@
+import org.checkerframework.checker.units.qual.A;
+import org.checkerframework.checker.units.qual.C;
+
 import java.util.ArrayList;
 
 public class Module {
     String modName;
     int modID;
     ArrayList<Student> studentsList;
-    ArrayList<Student> associatedCourses;
+    ArrayList<Course> associatedCourses;
 
     public Module(String modName, int modID){
         this.modName = modName;
         this.modID = modID;
+        this.studentsList = new ArrayList<Student>();
+        this.associatedCourses = new ArrayList<Course>();
 
     }
 
@@ -36,11 +41,11 @@ public class Module {
         this.studentsList = studentsList;
     }
 
-    public ArrayList<Student> getAssociatedCourses() {
+    public ArrayList<Course> getAssociatedCourses() {
         return associatedCourses;
     }
 
-    public void setAssociatedCourses(ArrayList<Student> associatedCourses) {
+    public void setAssociatedCourses(ArrayList<Course> associatedCourses) {
         this.associatedCourses = associatedCourses;
     }
 
