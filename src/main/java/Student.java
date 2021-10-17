@@ -36,7 +36,8 @@ public class Student {
             coursesReg.add(course);
         }
     }
-    public void removeModule(Course course)
+
+    public void removeCourse(Course course)
     {
             coursesReg.remove(course);
     }
