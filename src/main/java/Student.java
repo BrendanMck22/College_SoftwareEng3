@@ -7,7 +7,7 @@ public class Student {
     int age;
     LocalDate DOB;
     int ID;
-    ArrayList<Course> coursesReg;
+    Course courseReg;
     ArrayList<Module> modulesReg;
 
     public Student(String name, int age, LocalDate DOB, int ID ){
@@ -15,6 +15,7 @@ public class Student {
         this.age = age;
         this.DOB = DOB;
         this.ID = ID;
+        modulesReg = new ArrayList<Module>();
 
     }
 
@@ -25,21 +26,27 @@ public class Student {
     public void addModule(Module module) {
         if (!modulesReg.contains(module)) {
             modulesReg.add(module);
+            module.addStudentToModule(this); //flag
         }
+
     }
-        public void removeModule(Module module)
-        {
-                modulesReg.remove(module);
-        }
-    public void addCourse(Course course) {
-        if (!coursesReg.contains(course)) {
-            coursesReg.add(course);
+    public void removeModule(Module module) {
+        if(modulesReg.contains(module)) {
+            modulesReg.remove(module);
+            module.removeStudentFromModule(this);
         }
     }
 
-    public void removeCourse(Course course)
-    {
-            coursesReg.remove(course);
+    public void addCourse(Course courseReg) {
+        this.courseReg = courseReg;
+    }
+
+    public void setCourseReg(Course course){
+        this.courseReg = course;
+        course.addStudentToCourse(this);
+    }
+    public void removeStudent(){
+        this.courseReg = null;
     }
 
 
@@ -75,6 +82,20 @@ public class Student {
     public void setDOB(LocalDate DOB) {
         this.DOB = DOB;
     }
+    public String getCourseReg(){
+        return courseReg.courseName;
+    }
+    public String getModuleAssociatedWithStudent(){
+        StringBuilder moduleStudentSB = new StringBuilder();
+
+        for(Module module: modulesReg){
+            moduleStudentSB.append(module.getModName());
+            moduleStudentSB.append(" ");
+        }
+
+        String moduleStudentString = moduleStudentSB.toString();
+        return moduleStudentString;
+    }
 
     public void printUsername(Student student){
         System.out.println("Username is : " + student.getUsername());
@@ -87,8 +108,9 @@ public class Student {
                 ", age=" + age +
                 ", DOB=" + DOB +
                 ", ID=" + ID +
-                ", courses=" + coursesReg +
-                ", modules=" + modulesReg +
+                ", Username=" + getUsername() +
+                ", courses=" + courseReg.getCourseName() +
+                ", modules=" + this.getModuleAssociatedWithStudent() + //flag
                 '}';
     }
 

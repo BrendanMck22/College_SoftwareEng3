@@ -1,5 +1,4 @@
-import org.checkerframework.checker.units.qual.A;
-import org.checkerframework.checker.units.qual.C;
+
 
 import java.util.ArrayList;
 
@@ -20,18 +19,25 @@ public class Module {
     public void addModuleToCourse(Course course){
         if(!associatedCourses.contains(course)){
             associatedCourses.add(course);
+            course.addCourseToModule(this);
         }
     }
     public void removeModuleFromCourse(Course course){
-        associatedCourses.remove(course);
-    }
-    public void addStudentToCourse(Student student){
-        if(!studentsList.contains(student)){
-            studentsList.add(student);
+        if(associatedCourses.contains(course)) {
+            associatedCourses.remove(course);
+            course.removeCourseFromModule(this);
         }
     }
-    public void removeStudentFromCourse(Student student){
+    public void addStudentToModule(Student student){
+        if(!studentsList.contains(student)){
+            studentsList.add(student);
+            student.addModule(this);
+        }
+    }
+    public void removeStudentFromModule(Student student) {
+        if(studentsList.contains(student))
         studentsList.remove(student);
+        student.removeModule(this);
     }
 
 
@@ -71,13 +77,36 @@ public class Module {
         this.associatedCourses = associatedCourses;
     }
 
+    public String getStudentList(){
+        StringBuilder moduleStudentListSB = new StringBuilder();
+
+        for(Student student : studentsList){
+            moduleStudentListSB.append(student.name);
+            moduleStudentListSB.append(" ");
+        }
+
+        String moduleStudentString = moduleStudentListSB.toString();
+        return moduleStudentString;
+    }
+    public String getModuleAssociatedCoursesListname(){
+        StringBuilder moduleCoursesSB = new StringBuilder();
+
+        for(Course course : associatedCourses){
+            moduleCoursesSB.append(course.getCourseName());
+            moduleCoursesSB.append(" ");
+        }
+
+        String moduleCourseString = moduleCoursesSB.toString();
+        return moduleCourseString;
+    }
+
     @Override
     public String toString() {
         return "Module{" +
                 "modName='" + modName + '\'' +
                 ", modID=" + modID +
-                ", studentsList=" + studentsList +
-                ", associatedCourses=" + associatedCourses +
+                ", studentsList=" + getStudentList() + //flag
+                ", associatedCourses=" + getModuleAssociatedCoursesListname() +
                 '}';
     }
 }

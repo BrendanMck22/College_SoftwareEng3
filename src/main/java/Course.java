@@ -1,6 +1,6 @@
+
 import org.joda.time.DateTime;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Course {
@@ -10,7 +10,7 @@ public class Course {
     DateTime startDate;
     DateTime endDate;
 
-    public Course(String courseName, DateTime startDate, DateTime endDate){
+    public Course(String courseName,DateTime startDate, DateTime endDate){
         this.courseName = courseName;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -18,17 +18,29 @@ public class Course {
         this.studentList = new ArrayList<Student>();
     }
 
-    public void addModuleToCourse(Module module){
+    public void addCourseToModule(Module module){
         if(!moduleList.contains(module)){
             moduleList.add(module);
+            module.addModuleToCourse(this); //flag
         }
     }
-    public void removeModuleFromCourse(Module module){
-        moduleList.remove(module);
+    public void removeCourseFromModule(Module module){
+        if(moduleList.contains(module)) {
+            moduleList.remove(module);
+            module.removeModuleFromCourse(this);
+        }
     }
 
     public void addStudentToCourse(Student student){
-
+        if(!studentList.contains(student)){
+            studentList.add(student);
+            student.setCourseReg(this);
+        }
+    }
+    public void removeStudentFromCourse(Student student){
+        if(studentList.contains(student))
+        studentList.remove(student);
+        student.removeStudent();
     }
 
 
@@ -56,6 +68,31 @@ public class Course {
         this.studentList = studentList;
     }
 
+    public String getModuleListname(){
+        StringBuilder moduleSB = new StringBuilder();
+
+        for(Module module : moduleList){
+            moduleSB.append(module.getModName());
+            moduleSB.append(" ");
+        }
+
+        String moduleString = moduleSB.toString();
+        return moduleString;
+    }
+    public String getStudentListname(){
+        StringBuilder studentSB = new StringBuilder();
+
+        for(Student student : studentList){
+            studentSB.append(student.getName());
+            studentSB.append(" ");
+        }
+
+        String studentString = studentSB.toString();
+        return studentString;
+    }
+
+
+
     public DateTime getStartDate() {
         return startDate;
     }
@@ -76,10 +113,11 @@ public class Course {
     public String toString() {
         return "Course{" +
                 "courseName='" + courseName + '\'' +
-                ", moduleList=" + moduleList +
-                ", studentList=" + studentList +
+                ", moduleList=" + getModuleListname() +
+                ", studentList=" + this.getStudentList() +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
+
                 '}';
     }
 }
