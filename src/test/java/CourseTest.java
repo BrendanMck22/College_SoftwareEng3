@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import java.time.LocalDate;
 
 public class CourseTest extends TestCase {
+    // test data
     DateTime startTime = new DateTime(2021, 1, 1, 2, 30);
     DateTime endTime =  new DateTime(2021, 12, 31, 2, 30);
     Course IntroToEE = new Course("IntroToEE",startTime, endTime);
@@ -15,11 +16,13 @@ public class CourseTest extends TestCase {
 
 @Test
 public void testCourseName(){
+    //checks course name is correct
     String courseName = IntroToEE.getCourseName();
     assertEquals("IntroToEE", courseName);
     }
     @Test
     public void testAddCourseToModule() {
+        // tests the adding and removal of adding a module to a course
         IntroToEE.addCourseToModule(EE123);
         IntroToEE.addCourseToModule(EC234);
         IntroToEE.removeCourseFromModule(EE123);
@@ -29,6 +32,7 @@ public void testCourseName(){
     }
     @Test
     public void testAddStudentToCourse(){
+    //checks the adding and removal of a student from the course
     IntroToEE.addStudentToCourse(testStudent1);
     IntroToEE.addStudentToCourse(testStudent2);
     IntroToEE.removeStudentFromCourse(testStudent2);

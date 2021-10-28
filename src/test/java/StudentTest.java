@@ -3,9 +3,9 @@ import org.joda.time.DateTime;
 import org.testng.annotations.Test;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class StudentTest extends TestCase {
+    // test data
     Student testStudent = new Student("Brendan", 22, LocalDate.of(1999,01,02),13);
     Module EE123    = new Module("IntroToEE", 12345);
     Module EC234 = new Module("EC234", 1976);
@@ -17,12 +17,13 @@ public class StudentTest extends TestCase {
     Course IntroToCompSci = new Course("IntroToCompSci", CompSciStartTime, CompSciEndTime);
     @Test
     public void testGetUsername() {
-        //Student testStudent = new Student("Brendan", 22, LocalDate.of(1999,01,02),11);
+        //tests is the name of the user and their id number is correctly appended
         String testUsername= testStudent.getUsername();
         assertEquals("Brendan13",testUsername);
     }
     @Test
     public void testAddModule(){
+        // tests the adding and removal of student from module
         testStudent.addModule(EE123);
         testStudent.addModule(EC234);
         testStudent.removeModule(EE123);
@@ -32,6 +33,7 @@ public class StudentTest extends TestCase {
     }
     @Test
     public void testSetCourseReg(){
+        // tests the adding of student to a course
         testStudent.setCourseReg(IntroToCompSci);
         String testCourse = "IntroToCompSci";
         String checkerCourse = testStudent.getCourseReg();

@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import java.time.LocalDate;
 
 public class ModuleTest extends TestCase {
+    //test data
     Module EE123    = new Module("IntroToEE", 12345);
     DateTime CompSciStartTime = new DateTime(2021, 01, 19, 9, 00);
     DateTime CompSciEndTime = new DateTime(2021, 10, 20, 9, 00);
@@ -18,11 +19,13 @@ public class ModuleTest extends TestCase {
 
     @Test
     public void testModName() {
+        //checks the module name is correct
         String modname = EE123.getModName();
         assertEquals("IntroToEE", modname);
     }
     @Test
     public void testAddModuleToCourse(){
+        // checks the adding and removal of a module to a course
         EE123.addModuleToCourse(IntroToEE);
         EE123.addModuleToCourse(IntroToCompSci);
         EE123.removeModuleFromCourse(IntroToCompSci);
@@ -32,6 +35,7 @@ public class ModuleTest extends TestCase {
     }
     @Test
     public void testAddStudentToModule(){
+        // checks the adding and removal of a student to a module
         EE123.addStudentToModule(testStudent1);
         EE123.addStudentToModule(testStudent2);
         EE123.removeStudentFromModule(testStudent1);
@@ -40,7 +44,4 @@ public class ModuleTest extends TestCase {
         assertTrue(checkerStudent.contains(checkStudent));
 
     }
-
-
-
 }
