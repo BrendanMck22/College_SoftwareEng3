@@ -85,6 +85,10 @@ public class Student {
     public String getCourseReg(){
         return courseReg.courseName;
     }
+    /*
+    loops through modules the students are registered for array and
+    appends names of modules to a string
+     */
     public String getModuleAssociatedWithStudent(){
         StringBuilder moduleStudentSB = new StringBuilder();
 
@@ -103,15 +107,15 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", DOB=" + DOB +
-                ", ID=" + ID +
-                ", Username=" + getUsername() +
-                ", courses=" + courseReg.getCourseName() +
-                ", modules=" + this.getModuleAssociatedWithStudent() + //flag
-                '}';
+        return
+                "Name of student  = " + name +
+                ", Age of student = " + age +
+                ", DOB = " + DOB +
+                ", ID = " + ID +
+                ", Username  = " + getUsername() +
+                ", registered course = " + courseReg.getCourseName() +
+                ", registered modules = " + this.getModuleAssociatedWithStudent()
+                ;
     }
 
 }

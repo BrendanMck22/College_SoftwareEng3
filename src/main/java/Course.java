@@ -21,7 +21,7 @@ public class Course {
     public void addCourseToModule(Module module){
         if(!moduleList.contains(module)){
             moduleList.add(module);
-            module.addModuleToCourse(this); //flag
+            module.addModuleToCourse(this);
         }
     }
     public void removeCourseFromModule(Module module){
@@ -67,7 +67,7 @@ public class Course {
     public void setStudentList(ArrayList<Student> studentList) {
         this.studentList = studentList;
     }
-
+    // loops through module list array and appends name of modules to a string
     public String getModuleListname(){
         StringBuilder moduleSB = new StringBuilder();
 
@@ -79,6 +79,7 @@ public class Course {
         String moduleString = moduleSB.toString();
         return moduleString;
     }
+    // loops through student list array and appends names of students to a string
     public String getStudentListname(){
         StringBuilder studentSB = new StringBuilder();
 
@@ -111,13 +112,12 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course{" +
-                "courseName='" + courseName + '\'' +
-                ", moduleList=" + getModuleListname() +
-                ", studentList=" + this.getStudentList() +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
-
-                '}';
+        return
+                "Name of Course is = " + courseName  +
+                ", List of modules is = " + getModuleListname() +
+                ", List of students is = " + getStudentListname() +
+                ", start date is= " + startDate +
+                ", end date is= " + endDate
+                ;
     }
 }

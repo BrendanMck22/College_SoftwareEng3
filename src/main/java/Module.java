@@ -76,7 +76,7 @@ public class Module {
     public void setAssociatedCourses(ArrayList<Course> associatedCourses) {
         this.associatedCourses = associatedCourses;
     }
-
+    // loops through student list array and appends names of students to a string
     public String getStudentList(){
         StringBuilder moduleStudentListSB = new StringBuilder();
 
@@ -88,6 +88,7 @@ public class Module {
         String moduleStudentString = moduleStudentListSB.toString();
         return moduleStudentString;
     }
+    // loops through associated courses list array and appends name of courses to a string
     public String getModuleAssociatedCoursesListname(){
         StringBuilder moduleCoursesSB = new StringBuilder();
 
@@ -102,11 +103,10 @@ public class Module {
 
     @Override
     public String toString() {
-        return "Module{" +
-                "modName='" + modName + '\'' +
-                ", modID=" + modID +
-                ", studentsList=" + getStudentList() + //flag
-                ", associatedCourses=" + getModuleAssociatedCoursesListname() +
-                '}';
+        return
+                "Name of module= " + modName +
+                ", module ID = " + modID +
+                ", List of student in module = " + getStudentList() + //flag
+                ", Courses associated = " + getModuleAssociatedCoursesListname() ;
     }
 }
