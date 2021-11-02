@@ -1,0 +1,29 @@
+<changelist name="Uncommitted_changes_before_Update_at_28_10_2021_18_15_[Changes]1" date="1635441375889" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_10_2021_18_15_[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 28/10/2021 18:15 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="build/classes/java/test/ModuleTest.class" />
+    <option name="AFTER_PATH" value="build/classes/java/test/ModuleTest.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_10_2021_18_15_[Changes]1/ModuleTest.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/buildOutputCleanup/outputFiles.bin" />
+    <option name="AFTER_PATH" value=".gradle/buildOutputCleanup/outputFiles.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_10_2021_18_15_[Changes]1/outputFiles.bin" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="build/classes/java/test/StudentTest.class" />
+    <option name="AFTER_PATH" value="build/classes/java/test/StudentTest.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_10_2021_18_15_[Changes]1/StudentTest.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="build/tmp/compileTestJava/previous-compilation-data.bin" />
+    <option name="AFTER_PATH" value="build/tmp/compileTestJava/previous-compilation-data.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_10_2021_18_15_[Changes]1/previous-compilation-data.bin" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="build/classes/java/test/CourseTest.class" />
+    <option name="AFTER_PATH" value="build/classes/java/test/CourseTest.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_10_2021_18_15_[Changes]1/CourseTest.class" />
+  </binary>
+</changelist>
